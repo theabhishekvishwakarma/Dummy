@@ -1,0 +1,55 @@
+.project-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card {
+  width: 100%;
+  max-width: 900px;
+  background: linear-gradient(145deg, #0d0d0d, #151515);
+  padding: 50px;
+  border-radius: 16px;
+  color: #fff;
+  box-shadow: 0 30px 60px rgba(0,0,0,.5);
+}
+
+.subtitle {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.step {
+  opacity: 0;
+  transform: translateX(40px);
+  pointer-events: none;
+  transition: all .5s ease;
+}
+
+.step.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}

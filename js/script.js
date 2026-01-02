@@ -300,7 +300,20 @@ function initPackageInteractions() {
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 const packageName = this.closest('.package-card').querySelector('h5').textContent;
-                alert(`Thank you for your interest in our ${packageName} package! We'll contact you soon.`);
+               const btn = card.querySelector('.btn');
+
+btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const packageName = card.querySelector('h5').innerText;
+    const activeTab = document.querySelector('.tab-pane.active');
+    const serviceType = activeTab ? activeTab.id : 'web';
+
+    window.location.href =
+        `get-started.html?service=${serviceType}&package=${encodeURIComponent(packageName)}`;
+});
+
             });
         }
     });
@@ -424,6 +437,17 @@ function debugPortfolio() {
         console.log(`- Position:`, window.getComputedStyle(item).position);
     });
 }
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".get-started-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const service = btn.dataset.service;
+            const packageName = btn.dataset.package;
+
+            window.location.href =
+                `get-started.html?service=${service}&package=${encodeURIComponent(packageName)}`;
+        });
+    });
+});
 
 // Call this after DOM loads
 document.addEventListener('DOMContentLoaded', function() {

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started | Video Editing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #6c63ff;
+  --bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --card: #f9fafb;
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 25px 50px rgba(0,0,0,.05);
+  animation: fadeUp .6s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+p {
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  outline: none;
+  font-size: 14px;
+  transition: .3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(108,99,255,.1);
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Style tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.tag.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Button */
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(108,99,255,.35);
+}
+
+.success {
+  display: none;
+  text-align: center;
+  padding: 50px;
+}
+
+.success h2 {
+  color: var(--primary);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card" id="formCard">
+    <h1>Start Your Video Project 🎬</h1>
+    <p>Share your video requirements and we’ll handle the rest.</p>
+
+    <form id="videoForm">
+
+      <div class="grid">
+        <div>
+          <label>Name</label>
+          <input type="text" required>
+        </div>
+
+        <div>
+          <label>Email</label>
+          <input type="email" required>
+        </div>
+
+        <div>
+          <label>Video Type</label>
+          <select required>
+            <option value="">Select</option>
+            <option>YouTube Video</option>
+            <option>Instagram Reel / Short</option>
+            <option>Corporate Video</option>
+            <option>Advertisement</option>
+            <option>Podcast</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Video Duration</label>
+          <select required>
+            <option value="">Select</option>
+            <option>Under 1 min</option>
+            <option>1–5 min</option>
+            <option>5–10 min</option>
+            <option>10+ min</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Budget Range</label>
+          <select required>
+            <option value="">Select</option>
+            <option>₹2k – ₹5k</option>
+            <option>₹5k – ₹10k</option>
+            <option>₹10k+</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Deadline</label>
+          <input type="date" required>
+        </div>
+      </div>
+
+      <label style="margin-top:25px;">Editing Style Needed</label>
+      <div class="tags">
+        <div class="tag">Cinematic</div>
+        <div class="tag">Vlog</div>
+        <div class="tag">Short-form / Reels</div>
+        <div class="tag">Color Grading</div>
+        <div class="tag">Motion Graphics</div>
+        <div class="tag">Subtitles</div>
+      </div>
+
+      <label style="margin-top:25px;">Additional Notes</label>
+      <textarea placeholder="References, links, music preference, instructions..."></textarea>
+
+      <button type="submit">Submit Video Request</button>
+    </form>
+  </div>
+
+  <div class="card success" id="successBox">
+    <h2>🎉 Request Submitted</h2>
+    <p>Our editing team will contact you shortly.</p>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.tag').forEach(tag => {
+  tag.addEventListener('click', () => tag.classList.toggle('active'));
+});
+
+document.getElementById('videoForm').addEventListener('submit', e => {
+  e.preventDefault();
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('successBox').style.display = 'block';
+});
+</script>
+
+</body>
+</html>

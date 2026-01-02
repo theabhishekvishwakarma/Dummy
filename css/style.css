@@ -1988,3 +1988,91 @@ section {
     display: grid !important;
     visibility: visible !important;
 }
+
+.small-hero {
+    min-height: 60vh;
+}
+
+.get-started {
+    padding: 80px 0;
+}
+
+.services-choice {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.choice-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.choice-card i {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.choice-card:hover {
+    transform: translateY(-8px);
+}
+
+.cta-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+
+.form-hero {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.project-form {
+    max-width: 600px;
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+}
+.package-card {
+    position: relative;
+}
+
+.package-card * {
+    pointer-events: auto;
+}
+
+.package-card::before,
+.package-card::after {
+    pointer-events: none;
+}
+
+.package-card .btn {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
